@@ -1,0 +1,115 @@
+@import '~@gmfe/react/src/var';
+
+@border: 1px solid #eee;
+
+.station-tree {
+  border-top: @border;
+  border-bottom: @border;
+  position: relative;
+
+  &-icon {
+    font-size: 15px;
+    cursor: pointer;
+    color: @brand-primary;
+
+    &.station-tree-icon-plus {
+      color: #17233d;
+    }
+  }
+
+  &-edit {
+    color: #333;
+    opacity: 0;
+  }
+
+  &-checkbox {
+    padding-right: 8px;
+
+    & > span {
+      margin: 0 !important;
+    }
+  }
+
+  &-item {
+    padding-left: 10px !important;
+
+    .station-tree-item-container {
+      border-bottom: @border;
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+
+      & > div {
+        width: 100%;
+      }
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: @table-bg-hover;
+
+      .station-tree-edit {
+        opacity: 1;
+        color: @brand-primary;
+      }
+    }
+
+    &.selected {
+      background: @table-bg-hover;
+
+      .station-tree-edit {
+        opacity: 1;
+        color: @brand-primary;
+      }
+    }
+  }
+
+  &-number-tab {
+    position: absolute;
+    height: 50px;
+    top: -51px;
+    color: @gm-color-first;
+    margin-left: 16px;
+
+    & > svg {
+      font-size: 20px;
+    }
+
+    & > .station-tree-number-tab-number {
+      & > span {
+        padding: 0 5px;
+        font-weight: 600;
+        color: @brand-primary;
+      }
+    }
+
+    & > .station-tree-number-tab-button {
+      font-weight: 600;
+
+      &:hover {
+        color: @brand-primary;
+      }
+    }
+  }
+}
+
+.no-data-text {
+  border-bottom: 1px solid #eee;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  margin: 0 !important;
+}
+
+.sort-tree-item {
+  background: @table-bg-hover;
+}
+
+.sort-tree-ghost {
+  background-color: lighten(@table-bg-hover, 5%);
+}
+
+.sort-tree-drag {
+  background-color: darken(@table-bg-hover, 15%);
+}

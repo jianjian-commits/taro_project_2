@@ -1,0 +1,44 @@
+@keyframes fade-in-top-100 {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.b-fade-in-top-100 {
+  animation-name: fade-in-top-100;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+}
+
+.b-warning-box {
+  width: 600px;
+  left: calc(~"50% - 300px");
+  z-index: 999;
+  line-height: 1.5;
+  background-color: #fff;
+  top: 0
+}
+
+.b-warning-close {
+  position: absolute;
+  top: 0;
+  right: 3px;
+  font-size: 16px;
+  padding: 0;
+  border: 0;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  background: transparent;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.2;
+  -webkit-appearance: none;
+  cursor: pointer;
+}

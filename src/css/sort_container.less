@@ -1,0 +1,30 @@
+.b-sort-container {
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.b-sort-item {
+  color: #000;
+
+  /* 必要 */
+  position: relative;
+  cursor: grab;
+
+  /* 必要 getBoundingClientRect不含padding margin */
+  box-sizing: border-box;
+}
+
+.b-sort-container .b-sort-item.item-holder .item-shadow {
+  opacity: 0;
+}
+
+.b-sort-container .b-sort-item.item-holder::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 97%;
+  height: 97%;
+  border: 1px dashed #666;
+  border-radius: 7px;
+}

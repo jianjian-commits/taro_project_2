@@ -1,0 +1,240 @@
+.b-cp-banner {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+
+  .b-cp-banner-img {
+    width: 252px;
+    height: 80px;
+    object-fit: cover;
+    flex: 0 1 189px;
+  }
+
+  .b-cp-banner-link {
+    flex: 1;
+  }
+
+  &:hover {
+    .b-diy-btn-remove {
+      display: block;
+    }
+  }
+}
+
+.b-sort-list-item {
+  margin-bottom: 20px;
+}
+
+.b-upload-pic {
+  display: flex;
+  color: #666;
+  box-sizing: border-box;
+  border: 1px dashed #ccc;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 96px;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: fadeout(@brand-primary, 80%);
+  }
+}
+
+.b-upload-pic-disable {
+  cursor: not-allowed;
+}
+
+.b-clound-gallery {
+  width: 100%;
+  padding: 15px;
+  padding-bottom: 50px;
+  font-size: 14px;
+
+  .b-clound-content {
+    position: relative;
+    width: 100%;
+    height: 442px;
+    border: 1px solid @gm-border-color;
+
+    .b-species {
+      min-width: 120px;
+      height: 440px;
+      background: rgba(242, 242, 242, 1);
+      overflow-y: auto;
+      font-size: 12px;
+
+      .b-species-item {
+        width: 120px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        color: #000;
+
+        &:hover {
+          background: #ddd;
+          cursor: pointer;
+        }
+      }
+
+      .b-species-item-active {
+        width: 120px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        background: rgba(54, 173, 58, 1);
+        color: #fff;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .b-picture {
+      position: relative;
+      height: 440px;
+      width: 770px;
+      padding-left: 5%;
+      box-sizing: border-box;
+      overflow-y: auto;
+
+      .b-tip-nopic {
+        position: absolute;
+        width: 500px;
+        text-align: center;
+        left: 50%;
+        top: 35%;
+        transform: translate(-50%, -50%);
+      }
+
+      .b-picture-item-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        margin-bottom: 25px;
+        width: 311px;
+        height: 141.55px;
+        float: left;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        .b-picture-item {
+          width: 305px;
+          height: 135.55px;
+          object-fit: contain;
+        }
+
+        &.b-picture-item-active {
+          border: 3px solid rgba(54, 173, 58, 1);
+
+          .icon-ok {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            display: block;
+            width: 0;
+            color: #fff;
+            height: 0;
+            border-bottom: 45px solid rgba(54, 173, 58, 1);
+            border-left: 45px solid transparent;
+
+            &::before {
+              position: absolute;
+              display: block;
+              bottom: -40px;
+              right: 2px;
+              font-size: 18px;
+              font-weight: bold;
+            }
+          }
+        }
+
+        &.b-picture-item-not-allowed {
+          cursor: not-allowed;
+
+          &::after {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: 3px;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: block;
+            width: 305px;
+            height: 135.55px;
+          }
+
+          &:hover {
+            .icon-delete {
+              display: none;
+            }
+          }
+        }
+
+        &.b-picture-item-added {
+          cursor: not-allowed;
+
+          &::before {
+            content: '已添加';
+            display: block;
+            color: #eee;
+            line-height: 42px;
+            position: absolute;
+            bottom: 2px;
+            left: 3px;
+            width: 305px;
+            height: 42px;
+            font-weight: bold;
+            background-color: rgba(102, 102, 102, 0.7);
+            text-align: center;
+          }
+
+          &:hover {
+            .icon-delete {
+              display: none;
+            }
+          }
+        }
+
+        .icon-delete {
+          opacity: 0;
+          width: 35px;
+          height: 35px;
+          font-size: 18px;
+          line-height: 35px;
+          background-color: #888;
+          position: absolute;
+          right: 3px;
+          top: 3px;
+          text-align: center;
+          color: #ddd;
+
+          &:hover {
+            cursor: pointer;
+            background-color: gray;
+            color: #fff;
+          }
+        }
+
+        &:hover {
+          .icon-delete {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .b-clound-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,100 @@
+.sorting-list-item {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.list-item-box {
+  page-break-inside: avoid;
+}
+
+.b-sorting-view-sku-select-all-tip {
+  position: absolute;
+  top: -3px;
+  white-space: nowrap;
+  left: 40px;
+  background: @brand-primary;
+  padding: 4px 10px;
+  color: white;
+}
+
+.b-sorting-opacity {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.b-sorting-view-sku-item-disable {
+  color: #333333 !important;
+  opacity: 0.6;
+
+  td {
+    color: inherit !important;
+  }
+}
+
+.b-sorting-schedule-item-title {
+  font-size: 1.3em;
+  margin-left: 10px;
+}
+
+// 分拣投屏
+.b-full-screen-background {
+  background-image: url(../img/full_screen_background.jpg);
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+}
+
+.b-sorting-full-screen-button {
+  &:hover {
+    background-color: #56a3f2 !important;
+    color: #ffffff !important;
+  }
+}
+
+// 分拣投屏渐变色 蓝色
+.b-full-screen-gradient-color-blue {
+  background: -webkit-linear-gradient(to bottom, #37fbff, #015cff);
+  background: -o-linear-gradient(to bottom, #37fbff, #015cff);
+  background: -moz-linear-gradient(to bottom, #37fbff, #015cff);
+  background: linear-gradient(to bottom, #37fbff, #015cff);
+  -webkit-background-clip: text;
+  -o-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// 分拣投屏渐变色 红色
+.b-full-screen-gradient-color-red {
+  background: -webkit-linear-gradient(to bottom, #ff0001, #ffbcbc);
+  background: -o-linear-gradient(to bottom, #ff0001, #ffbcbc);
+  background: -moz-linear-gradient(to bottom, #ff0001, #ffbcbc);
+  background: linear-gradient(to bottom, #ff0001, #ffbcbc);
+  -webkit-background-clip: text;
+  -o-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// 分拣投屏渐变色 黄色
+.b-full-screen-gradient-color-yellow {
+  background: -webkit-linear-gradient(to bottom, #fed911, #00fce6);
+  background: -o-linear-gradient(to bottom, #fed911, #00fce6);
+  background: -moz-linear-gradient(to bottom, #fed911, #00fce6);
+  background: linear-gradient(to bottom, #fed911, #00fce6);
+  -webkit-background-clip: text;
+  -o-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// 按订单分拣打印单据
+.b-sorting-action {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 16px;
+}

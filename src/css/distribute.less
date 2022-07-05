@@ -1,0 +1,68 @@
+.b-distribute-order-table {
+  .b-distribute-action {
+    &:hover .b-distribute-order-print {
+      display: block;
+    }
+
+    & .b-distribute-order-print {
+      display: none;
+      cursor: pointer;
+      color: #86b04e;
+      font-size: 16px;
+    }
+
+    // 地址查看
+    .b-distribute-order-table-address-column {
+      &:hover .b-distribute-order-table-address-btn {
+        display: inline-block;
+      }
+
+      & .b-distribute-order-table-address-btn {
+        display: none;
+      }
+    }
+  }
+}
+
+.b-distribute-iframe-cover {
+  width: 100%;
+  height: 670px;
+  position: absolute;
+  left: 0;
+  color: red;
+  padding-left: 15px;
+}
+
+.b-distribute-order-popup {
+  height: 100vh;
+
+  &-right {
+    padding: 30px 0 20px 20px;
+    border-left: 1px solid #ddd;
+  }
+
+  &-padding-l-19 {
+    padding-left: 19px;
+  }
+
+  &-temp-radio {
+    label {
+      width: 100%;
+      padding-bottom: 5px;
+
+      a {
+        float: right;
+      }
+    }
+  }
+}
+
+.b-distribute-driver-task-order-table {
+  .table {
+    border-bottom: none !important;
+  }
+  .gm-flex.gm-flex-justify-center.gm-padding-top-5 {
+    border: 1px solid @brand-primary;
+    border-top: none ;
+  }
+}

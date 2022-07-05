@@ -1,0 +1,42 @@
+.b-control-center {
+  width: 100%;
+  padding: 10px 0;
+  height: 600px;
+  position: relative;
+}
+
+.b-control-center-stay-delay-point {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: white;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: blue;
+    position: relative;
+    top: 25%;
+    left: 25%;
+  }
+}
+
+.b-control-center-marker-control {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 200px;
+  padding: 10px;
+  z-index: 100;
+  background-color: white;
+}
+
+.b-control-center-loading {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  z-index: 101;
+}

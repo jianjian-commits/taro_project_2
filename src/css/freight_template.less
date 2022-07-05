@@ -1,0 +1,13 @@
+.b-freight-template-list {
+  :global {
+    .b-freight-template-list-hover-item {
+      visibility: hidden;
+    }
+  }
+
+  &:hover {
+    :global(.b-freight-template-list-hover-item) {
+      visibility: visible;
+    }
+  }
+}

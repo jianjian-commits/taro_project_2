@@ -1,0 +1,36 @@
+:local {
+  table.gridtable {
+    font-size: 12px;
+    color: #333;
+    border-width: 1px;
+    border-color: #666;
+    border-collapse: collapse;
+  }
+
+  table.gridtable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666;
+    background-color: #dedede;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  table.gridtable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666;
+    background-color: #fff;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  @media print {
+    @page {
+      size: A4 portrait;
+      margin: 5mm 0 10mm 0;
+    }
+  }
+}

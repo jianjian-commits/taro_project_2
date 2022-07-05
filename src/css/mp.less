@@ -1,0 +1,69 @@
+
+.b-mp-steps.gm-steps {
+  .b-step-icon {
+    border: 1px @brand-primary solid;
+    border-radius: 50%;
+    line-height: 20px;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    color: @brand-primary;
+    margin: 10px 0;
+  }
+
+  .b-step-completed {
+    background-color: @brand-primary;
+  }
+
+  .b-step-tag {
+    width: 1px;
+    background: @brand-primary;
+  }
+
+  .b-step-content {
+    background-color: @gm-back-body-bg;
+    border-radius: 4px;
+    margin: 20px 0;
+  }
+
+  .gm-steps-step:last-child .b-step-content,
+  .gm-steps-step:first-child .b-step-content {
+    margin: 0;
+  }
+
+  .gm-steps-step:last-child .b-step-tag:last-child,
+  .gm-steps-step:first-child .b-step-tag:first-child {
+    visibility: hidden;
+  }
+}
+
+.b-mp-type-card {
+  position: relative;
+  width: 240px;
+  height: 70px;
+  font-size: 16px;
+  color: @brand-primary;
+  border: 1px solid @brand-primary;
+  cursor: pointer;
+
+  &.active {
+    color: white;
+    background-color: @brand-primary;
+  }
+}
+
+.b-mp-loading {
+  display: inline-block;
+  vertical-align: middle;
+  animation: b-mp-circle 1.5s steps(12, end) infinite;
+}
+
+@keyframes b-mp-circle {
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+
+  100% {
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+}

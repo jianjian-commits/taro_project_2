@@ -1,0 +1,84 @@
+:local {
+  .SelectMarginBottm {
+    margin-bottom: 10px;
+  }
+  .supplier {
+    i {
+      cursor: pointer;
+    }
+  }
+
+  .purchasersSelect {
+    min-width: 167px;
+  }
+
+  .specName {
+    & > div {
+      cursor: pointer;
+    }
+
+    .glyphiconPencil {
+      margin-left: 5px;
+      visibility: hidden;
+    }
+
+    &:hover {
+      .glyphiconPencil {
+        margin-left: 5px;
+        visibility: visible;
+      }
+    }
+  }
+
+  .stdUnitName {
+    width: 40px;
+    height: 26px;
+    padding: 1px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #eee;
+  }
+
+  .inputWidth {
+    width: 50px;
+    height: 26px;
+    text-align: center;
+  }
+
+  .specModalWidth {
+    width: 750px;
+  }
+
+  .dialog {
+    margin-top: 5px;
+    padding-left: 5px;
+    :global li {
+      color: #838383;
+      list-style: none;
+      line-height: 18px;
+      span {
+        display: inline-block;
+        width: 86px;
+        text-align: right;
+      }
+    }
+  }
+
+  .preview {
+    input {
+      max-width: 120px;
+      padding: 6px 10px;
+    }
+
+    // gm-sheet-table-scroll-x的overflow-x: auto与gm-trigger的z-index冲突
+    :global .gm-sheet-table-scroll-x {
+      margin-bottom: 40px;
+    }
+
+    :global .gm-trigger {
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+}

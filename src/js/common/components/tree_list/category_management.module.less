@@ -1,0 +1,76 @@
+@import '~@gmfe/react/src/var';
+
+:local {
+  .div {
+    width: 5px;
+    height: 21px;
+    background-color: @brand-primary;
+    display: inline-block;
+  }
+
+  .img {
+    &-container {
+      width: 502px;
+      height: 300px;
+      border: 1px solid #d8dee7;
+      overflow-y: auto;
+    }
+
+    &-item {
+      width: 40px;
+      height: 40px;
+      border-width: 1px;
+      border-style: dashed;
+      border-color: #eee;
+      cursor: pointer;
+      border-radius: 2px;
+      margin-right: 12px;
+      margin-bottom: 12px;
+      position: relative;
+
+      & > img {
+        width: 100%;
+      }
+
+      &-selected {
+        border-style: solid;
+        border-color: @brand-primary;
+      }
+
+      &:hover {
+        border-style: solid;
+        border-color: @brand-primary;
+      }
+    }
+
+    &-fill {
+      width: 40px;
+      height: 0;
+      margin-right: 12px;
+      border-width: 1px;
+      border-style: dashed;
+      border-color: transparent;
+    }
+  }
+}
+
+.btn {
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    outline: none;
+    box-shadow: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.img-checkbox {
+  position: absolute;
+  right: -15px;
+  top: -3px;
+}

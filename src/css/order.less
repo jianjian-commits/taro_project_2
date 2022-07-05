@@ -1,0 +1,666 @@
+// table 组合商品
+
+.b-batch-sku-select .gm-dropselect-item {
+  position: relative;
+
+  &:not(.gm-dropselect-title) {
+    min-height: 50px !important;
+  }
+
+  .b-combine-goods-label {
+    &::after {
+      content: attr(data-label);
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 2px;
+      background: @brand-primary;
+      color: white;
+    }
+  }
+}
+
+.b-combine-goods-top {
+  border-top: 1px solid @brand-primary !important;
+  position: relative;
+
+  &.b-combine-goods-top-border-none {
+    border-top: none !important;
+  }
+
+  &::after {
+    content: attr(data-label);
+    position: absolute;
+    top: 0;
+    padding: 2px;
+    background: @brand-primary;
+    color: white;
+    z-index: 1;
+  }
+}
+
+.b-combine-goods-lr {
+  border-left: 1px solid @brand-primary !important;
+  border-right: 1px solid @brand-primary !important;
+}
+
+.b-combine-goods-bottom {
+  border-bottom: 1px solid @brand-primary !important;
+}
+
+.b-combine-goods-label {
+  word-break: break-all;
+
+  &::after {
+    content: attr(data-label);
+    position: absolute;
+    top: -8px;
+    left: -10px;
+    padding: 2px;
+    background: @brand-primary;
+    color: white;
+  }
+}
+
+.b-order {
+  padding: 0;
+
+  .b-order-btn .gm-loading-path {
+    stroke: #fff;
+  }
+  //.b-filter-datepicker input {
+  //  //width: 23em !important;
+  //  font-size: 12px;
+  //}
+  //打印检测报告
+  .gm-quick.gm-quick-desc .b-order-report {
+    min-width: 20px;
+
+    .caret {
+      color: @brand-primary;
+    }
+
+    &:hover .caret {
+      color: #fff;
+    }
+  }
+
+  .gm-dropselect-list-wrap .gm-dropselect-item {
+    min-height: 45px;
+    height: auto;
+  }
+
+  .gm-quick-filter {
+    .b-order-service-time-select {
+      width: 95px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .b-order-detail-header {
+      flex-direction: column;
+
+      .b-order-detail-header-right {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .gm-ellipsis {
+    white-space: normal;
+    line-height: 1.2;
+
+    .b-order-search-sku-name {
+      padding: 10px 0;
+      word-break: break-all;
+
+      .ifont-stack {
+        position: relative;
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        line-height: 1em;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .b-order-detail-header {
+    position: relative;
+
+    .b-order-detail-header-label {
+      font-size: 12px;
+      width: 100px;
+      margin: 0;
+    }
+
+    .b-order-defail-header-arrow.disabled {
+      color: @gray-lighter;
+    }
+
+    .b-order-detail-header-right {
+      position: relative;
+
+      .b-order-detail-header-label {
+        width: 65px;
+      }
+
+      label {
+        width: 70px;
+      }
+
+      &::before {
+        position: absolute;
+        height: 100%;
+        width: 1px;
+        background-color: @gm-border-color;
+        content: ' ';
+        left: 0;
+      }
+
+      .glyphicon {
+        font-size: 12px;
+      }
+    }
+
+    .gm-search-select {
+      width: 100%;
+
+      .list-group-item {
+        word-break: break-all;
+      }
+    }
+
+    .b-order-select {
+      &.disabled .form-control {
+        background: #f0f1f3;
+        color: #798294;
+        opacity: 1;
+      }
+    }
+
+    .b-order-remark {
+      &:disabled {
+        background: #f0f1f3;
+        color: #798294;
+        opacity: 1;
+      }
+    }
+
+    .b-order-create-receive-time {
+      display: inline-block;
+      width: 80px;
+      &.disabled .form-control {
+        background: #f0f1f3;
+        color: #798294;
+        opacity: 1;
+      }
+    }
+  }
+
+  .b-order-add-servicetime-box {
+    .gm-select.disabled,
+    select:disabled,
+    button:disabled {
+      background: #f0f1f3;
+      color: #798294 !important;
+      opacity: 1;
+    }
+  }
+
+  .gm-time-span-picker {
+    input {
+      width: 60px;
+    }
+  }
+
+  .b-order-quantity-input {
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .b-order-btn-wide {
+    width: 90px;
+  }
+
+  .b-quick-title {
+    a {
+      margin-left: 0 !important;
+    }
+  }
+
+  .b-row-eq-height {
+    display: flex;
+  }
+
+  .b-col-align-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .b-order-sheet-table-fix {
+    table {
+      margin-bottom: 0;
+    }
+    .b-order-active-color {
+      color: #86b04e;
+    }
+  }
+
+  .b-order-service-time-invalid {
+    color: red;
+  }
+
+  .b-order-create-receive-time {
+    vertical-align: middle;
+  }
+
+  .b-order-opacity {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .b-datepicker-disabled {
+    color: #eee;
+  }
+
+  .b-order-view-sku-search-select {
+    input {
+      width: 150px;
+    }
+  }
+
+  .b-order-view-sku-select-all-tip {
+    position: absolute;
+    top: -3px;
+    white-space: nowrap;
+    left: 40px;
+    background: @brand-primary;
+    padding: 4px 10px;
+    color: white;
+  }
+}
+
+.b-order-popover {
+  display: table !important;
+
+  .popover-content {
+    padding: 0;
+  }
+}
+
+.b-order-view-sku-popover {
+  width: 400px;
+
+  table {
+    padding-bottom: 0;
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+}
+
+.b-order-price-input {
+  display: inline-block;
+  width: 60px;
+  text-align: center;
+  line-height: 1;
+}
+
+.b-order-remark-input {
+  display: flex;
+  flex: 1;
+  .gm-trigger-popup {
+    right: 0;
+
+    div {
+      cursor: pointer;
+    }
+  }
+}
+
+//订单 检测报告打印
+.b-order-report-print {
+  background-color: #fff;
+  min-height: 1000px;
+
+  .print-container {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    padding: 30px 0;
+    max-width: 980px;
+
+    .print-btn-group {
+      position: absolute;
+      top: 30px;
+      right: 0;
+
+      button {
+        margin-left: 20px;
+        color: #000;
+      }
+    }
+
+    .print-head {
+      margin-bottom: 10px;
+
+      h1 {
+        font-size: 25px;
+        cursor: pointer;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      small {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .print-content table {
+    margin: 0 auto;
+    width: 100%;
+
+    td {
+      border: 1px solid #000;
+      padding: 3px 0;
+      min-width: 100px;
+      cursor: default;
+
+      input {
+        min-width: 100px;
+        width: 100%;
+        border: none;
+        text-align: center;
+        outline: none;
+      }
+    }
+
+    .order-print-qualified {
+      user-select: none;
+
+      span {
+        display: block;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .b-order-footer-wrapper {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 14px;
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    .footer-print-tips span {
+      display: inline-block;
+      margin-right: 30px;
+    }
+
+    .footer-print-tips-2,
+    .footer-print-tips-3 {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .footer-print-sign span:first-child {
+      display: inline-block;
+      margin-right: 250px;
+    }
+  }
+
+  .order-report-dialog-ul {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: inline-block;
+      cursor: pointer;
+      border: 1px solid @brand-primary;
+      padding: 5px 8px;
+      margin: 5px 15px;
+      margin-left: 0;
+
+      &.active {
+        background-color: @brand-primary;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.b-order-add {
+  position: relative;
+
+  .b-order-add-sidebar {
+    position: fixed;
+    background-color: white;
+    right: 20px;
+    top: 60px;
+    width: 165px;
+    height: 500px;
+    z-index: 999;
+
+    .gm-modal-dialog {
+      margin-top: 200px;
+
+      .close {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-height: 768px) {
+    .b-order-add-sidebar {
+      height: 400px;
+      .b-order-batch-item-wrap {
+        height: 310px;
+      }
+    }
+  }
+
+  .b-order-add-sidebar-title {
+    background: @gm-back-body-bg;
+    padding: 10px;
+  }
+
+  .b-order-batch-item-wrap {
+    width: 100%;
+    height: 410px;
+    overflow: auto;
+  }
+
+  .b-order-add-side-resinfo-item {
+    &.active {
+      background: rgba(134, 176, 78, 0.6);
+
+      .text-primary {
+        color: white;
+      }
+    }
+
+    &:hover,
+    :active {
+      background: rgba(134, 176, 78, 0.6);
+
+      .text-primary {
+        color: white;
+      }
+    }
+  }
+
+  .b-order-add-sidebar-resinfo {
+    font-size: 12px;
+  }
+
+  .b-order-add-sidebar-footer {
+    height: 35px;
+    border-top: 1px solid @gm-border-color;
+
+    .b-order-add-sidebar-footer_cancel {
+      &:hover,
+      &:active {
+        background: @gm-back-body-bg;
+      }
+    }
+
+    .b-order-add-sidebar-footer_save {
+      background: @brand-primary;
+      color: white;
+
+      &.disabled {
+        background: #777 !important;
+        cursor: no-drop;
+      }
+
+      &:hover,
+      .active {
+        background: darken(@brand-primary, 5%);
+      }
+    }
+  }
+}
+
+.b-order-sale-filter {
+  .gm-filter-select {
+    width: 200px;
+  }
+}
+
+.b-triangle-sort {
+  display: inline-block;
+  vertical-align: bottom;
+  cursor: pointer;
+  margin-left: 2px;
+
+  .triangle-sort-top {
+    width: 0;
+    height: 0;
+    border-top: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 5px solid #ccc;
+    border-left: 3px solid transparent;
+    margin-bottom: 1px;
+
+    &.dark {
+      border-bottom: 7px solid #999;
+    }
+  }
+
+  .triangle-sort-bottom {
+    width: 0;
+    height: 0;
+    border-top: 5px solid #ccc;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid transparent;
+
+    &.dark {
+      border-top: 7px solid #999;
+    }
+  }
+}
+
+i.ifont {
+  &.b-order-icon {
+    display: inline-block;
+    padding: 0 2px;
+    font-size: 12px;
+    margin-left: 2px;
+    color: #fff !important;
+    background-color: #ccc;
+    &.b-icon-primary {
+      background-color: #86b04e;
+    }
+    &.b-icon-red {
+      background-color: #f00;
+    }
+  }
+}
+
+.gm-order-modify {
+  display: block;
+  &.cursor-pointer {
+    min-width: 50px;
+    cursor: pointer;
+  }
+  &.cursor-disabled {
+    cursor: not-allowed;
+  }
+  input {
+    padding: 3px;
+    width: 40px;
+  }
+  &.disabled {
+    cursor: not-allowed;
+  }
+  .b-order-modify-edit {
+    display: inline-block;
+    visibility: hidden;
+  }
+  .b-order-modify-ok {
+    display: inline-block;
+  }
+  &:hover {
+    .b-order-modify-edit {
+      visibility: visible;
+    }
+  }
+}
+
+.b-ellipsis-desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.b-order-delivery-header {
+  background: white !important;
+}
+
+.b-order-status-tag {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: @gm-color-fourth;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+.b-order-export {
+  a {
+    &:hover {
+      background-color: #b2d5ff !important;
+    }
+  }
+}
+
+.b-ellipsis-order-remark {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.b-import-order-count-zero {
+  &::after {
+    content: '\8be5\8ba2\5355\5546\54c1\6570\4e3a\0030';
+    position: relative;
+    top: 5px;
+    left: 0;
+    color: red;
+  }
+}
+

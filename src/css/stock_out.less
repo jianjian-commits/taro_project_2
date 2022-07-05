@@ -1,0 +1,33 @@
+// 先进先出 异常警告
+.b-stock-out-anomaly {
+  :global .gm-trigger {
+    display: inline-block;
+  }
+}
+
+.b-stock-out-batch-list {
+  position: relative;
+
+  :global th {
+    input {
+      display: none;
+    }
+  }
+}
+
+.b-position-top {
+  position: sticky;
+  top: 0;
+  height: 80px;
+  padding: 15px;
+  box-sizing: border-box;
+  z-index: 999;
+  background-color: #fff;
+}
+
+.b-position-bottom {
+  position: sticky;
+  bottom: 0;
+  height: 50px;
+  background-color: #fff;
+}

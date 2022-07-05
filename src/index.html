@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <script>
+      // 重新赋值window.close
+      window.closeWindow = window.close
+    </script>
+    <script>
+      var __platform = 'stationV2'
+      var ____fe_branch = '<%= htmlWebpackPlugin.options.branch %>'
+      var ____git_commit = '<%= htmlWebpackPlugin.options.commit %>'
+    </script>
+    <% if(htmlWebpackPlugin.options.env !== 'development') { %>
+    <script>
+      var ____template_type = Number('{{template_type}}')
+      var ____show_template_change_button = Number(
+        '{{show_template_change_button}}',
+      )
+    </script>
+    <script>
+      var g_group_id = Number('{{partner_id}}');
+      var g_authority = {
+        role: ~~'{{role}}',
+        isCenterSaller: '{{is_center_seller}}' === 'True'
+      };
+      var g_user = {
+        custom_fake_bill: '{{user.custom_fake_bill}}' === 'True',
+        station_id: '{{user.station_id}}',
+        station_name: '{{user.station_name}}',
+        stock_method: Number('{{user.stock_method}}'),
+        first_name: '{{user.first_name}}',
+        name: '{{user.username}}',
+        user_id: '{{user.user_id}}',
+        type: '{{type}}',
+        create_time: '{{user.create_time}}',
+        distribute_cities: {{ user.distribute_cities|safe }},
+        priviledge: Number('{{ priviledge }}'),
+        permission: {{ user.permissions|safe }}
+      };
+    </script>
+    <script>
+      // 配置信息
+      // 避免字段写错导致解析不了，各给一个初始值
+      var g_show_order_remark = true
+      var g_is_staff = false
+      var g_batch_in_stock = true
+      var g_clean_food = true
+      var g_show_tax_rate = 0
+      var g_show_suggest_price = 0
+      var g_sync_price_timing = 0
+      var g_show_sku_outer_id = 0
+      /** 商品公式定价精确度 0-取整，1保留一位，2-保留两位，默认保留两位 */
+      var g_formula_price_precision = 0
+      /** 商品公式定价取舍方法 0-四舍五入，1-向上取整，2-向下取整，默认四舍五入 */
+      var g_formula_price_rounding_type = 0
+      var g_default_settle_way = 2
+      var g_is_fqt = 0
+      var g_generate_sort_num_rule = 1
+      var g_generate_sort_num_rule_classification = 1
+      var g_in_stock_price_warning = 1
+      var g_purchase_sheet_ref_price = 1
+      var g_in_stock_ref_price = 1
+      var g_show_res_custom_code = 0
+      var g_order_create_purchase_task = 0
+      var g_is_c_station = 1
+      var g_bshop_new_ui = 1
+      // 零售报价单id
+      var g_c_salemenu_id = null
+    </script>
+    <script>
+      g_show_order_remark = '{{ allow_order_remark }}' === 'True'
+      g_is_staff = '{{is_staff}}' === 'True';
+      g_batch_in_stock = '{{allow_multi_batch}}' === 'True';
+      g_clean_food = '{{clean_food}}' === 'True';
+      g_show_sku_outer_id = Number('{{show_sku_outer_id}}');
+      g_default_settle_way = Number('{{default_settle_way}}');
+      g_show_tax_rate = Number('{{show_tax_rate}}');
+      g_show_suggest_price = Number('{{suggest_price}}');
+      g_sync_price_timing = Number('{{sync_price_timing}}')
+      /** 商品公式定价精确度 0-取整，1保留一位，2-保留两位，默认保留两位 */
+      g_formula_price_precision = Number('{{formula_price_precision}}')
+      /** 商品公式定价取舍方法 0-四舍五入，1-向上取整，2-向下取整，默认四舍五入 */
+      g_formula_price_rounding_type = Number('{{formula_price_rounding_type}}')
+      g_is_fqt = Number('{{is_fqt}}');
+      g_generate_sort_num_rule = Number('{{generate_sort_num_rule}}');
+      g_generate_sort_num_rule_classification = Number('{{generate_sort_num_rule_classification}}');
+      g_in_stock_price_warning = Number('{{in_stock_price_warning}}')
+      g_purchase_sheet_ref_price = Number('{{purchase_sheet_ref_price}}');
+      g_in_stock_ref_price = Number('{{in_stock_ref_price}}')
+      g_show_res_custom_code = Number('{{show_res_custom_code}}')
+      g_order_create_purchase_task = Number('{{order_create_purchase_task}}')
+      g_is_c_station = Number('{{distribute_type}}')
+      g_bshop_new_ui = Number('{{bshop_new_ui}}')
+      g_c_salemenu_id = '{{c_salemenu_id }}'
+      {%if role == 1 %}
+      var g_supplier_data = {
+        supply_station_id: '{{supply_station_id}}',
+        seller_station_id: '{{seller_station_id}}'
+      };
+      {% endif %}
+    </script>
+    <% } %> <% if(htmlWebpackPlugin.options.env === 'development') { %>
+    <script>
+      // 模板信息
+      var ____template_type = 1
+      var ____show_template_change_button = 1 // 是否现在切换 新旧ui 按钮
+    </script>
+    <script>
+      // 由于没有后台的环境，这里只是个假数据
+      var g_group_id = 356
+      /**
+       * SelfSupport = 0  # 自营站点，k10
+       * Supply = 1  # 供应商
+       * Partner = 2  # 加盟商，转配点
+       * Seller = 4  # 销售总部的意思
+       * SettleSupply = 6  # 结算供应商(进销存供应商)
+       * PurchaseApp = 7  # 专用于采购APP的站点
+       */
+      // role为1表示为供应商，启用g_supplier_data变量
+      var g_authority = {
+        role: ~~'2',
+        isCenterSaller: 'False' === 'True',
+      }
+      var g_user = {
+        custom_fake_bill: false,
+        station_id: 'T23994',
+        name: 'k10admin',
+        user_id: 'k10admin',
+        first_name: 'k10admin',
+        station_name: 'SZ-总仓-K10',
+        distribute_cities: ['深圳'],
+        create_time: '2020-03-23 10:00:00',
+        stock_method: 2, // 进销存计算方式： 1 加权平均    2 先进先出
+        permission: [
+          'sales_cockpit',
+          'customer_purchase_analysis',
+          'merchandising_analysis',
+          'sales_summary_table',
+          'edit_salemenu_templates',
+          'delete_salemenu_templates',
+          'add_salemenu_templates',
+          'add_pur_spec',
+          'add_sku_tob',
+          'get_purchase_setting',
+          'get_split_plan',
+          'get_split_sheet',
+          'get_purchaser',
+          'get_distribute_center_tab',
+          'get_check_spu',
+          'edit_out_stock_print_config',
+          'print_settle',
+          'edit_priority_supplier',
+          'get_reference_information',
+          'edit_fake_quantity',
+          'edit_order_tob',
+          'create_out_stock_print_config',
+          'delete_public_spu_tob',
+          'get_shop_setting_tob',
+          'edit_product_unit_price',
+          'add_purchase_task_item',
+          'edit_spu_tob',
+          'get_salemenu',
+          'add_spu_tob',
+          'get_purchase_sheet_print',
+          'get_quote_price',
+          'edit_goods_tax',
+          'edit_child_station_order_status',
+          'get_sms_send_record',
+          'edit_spu_private_tob',
+          'edit_pur_spec',
+          'export_member_information_tob',
+          'edit_base_setting_tob',
+          'add_combine_goods',
+          'get_exchange_reward_flow',
+          'get_stock_threshold_warning',
+          'edit_order_status',
+          'edit_order_by_recognize_text',
+          'delete_order_tob',
+          'add_split_sheet',
+          'get_out_stock',
+          'get_address_stock_value',
+          'distribution_order_export',
+          'get_return_stock',
+          'distribution_order_edit',
+          'add_category',
+          'edit_in_stock_print_config',
+          'import_spu_by_template',
+          'get_spu_adjust_log',
+          'delete_purchase_print_template',
+          'edit_supplier_sku',
+          'edit_to_instock_sheet',
+          'edit_rounding',
+          'delete_delivery',
+          'delete_print_template_new',
+          'get_turnover_return_sheet',
+          'delete_sku_batch_tob',
+          'add_supplier_sku',
+          'edit_order_purchase_profit',
+          'get_purchase_history',
+          'delete_material',
+          'edit_in_stock',
+          'expor_purchase_record_tob',
+          'edit_order',
+          'print_out_stock',
+          'view_order_after_sale_tob',
+          'add_return_stock',
+          'edit_coupon_tob',
+          'get_purchase_task_quote_price_template',
+          'get_supplier_assess',
+          'get_purchase_task_print',
+          'view_kingdee_import',
+          'print_smart_menu',
+          'add_reward_sku',
+          'get_order',
+          'open_app_pospal',
+          'delete_inner_transfer_sheet',
+          'edit_in_return_review',
+          'get_inner_transfer_sheet',
+          'export_package',
+          'edit_smart_menu',
+          'get_commission_rule',
+          'get_spu_tob',
+          'import_stock_avg_price_repair',
+          'edit_pesticidedetect',
+          'edit_sms_setting',
+          'edit_in_stock_ref_price',
+          'get_smart_menu',
+          'get_sorting_screen_toc',
+          'view_icon_manage',
+          'edit_requisition',
+          'edit_order_process',
+          'add_spu_private_tob',
+          'edit_product_sku_batch_import',
+          'edit_category_tob',
+          'edit_member_setting_tob',
+          'delete_private_spu',
+          'get_check_batch_number',
+          'edit_smart_pricing_tob',
+          'view_open_app_store',
+          'delete_public_spu',
+          'get_security_report',
+          'get_supplier_sku',
+          'get_stock_change_record',
+          'add_smart_menu',
+          'view_icon_manage_tob',
+          'delete_distributor_level_tob',
+          'edit_SpuDispatchSetting_tob',
+          'get_weigh_stat',
+          'get_purchase_market',
+          'get_purchase_spec_price_info',
+          'edit_turnover_loan_sheet',
+          'edit_order_status_tob',
+          'add_create_purchase_sheet',
+          'edit_supply_limit',
+          'edit_sku',
+          'get_pick_up_station',
+          'get_purchase_sheet_share',
+          'add_turnover_loan_sheet',
+          'delete_in_stock_print_config',
+          'delete_out_stock_print_config',
+          'delete_distribute_config',
+          'edit_batch_create_order_purchase',
+          'edit_invitation_gift_tob',
+          'delete_order',
+          'add_turnover_sku_info',
+          'add_spu',
+          'get_requisition',
+          'edit_merchandise_order_tob',
+          'delete_address_route',
+          'get_print_salemenu',
+          'delete_split_plan',
+          'delete_out_stock',
+          'get_return',
+          'add_import_sale_skus',
+          'get_analysis_costofgoods',
+          'view_nutrition_info',
+          'get_purchase_task_share',
+          'add_supplier',
+          'edit_purchase_task_item',
+          'get_supplier',
+          'get_in_stock',
+          'delete_purchase_task_item',
+          'edit_print_tag',
+          'batch_create_spu_tob',
+          'edit_purchase_sheet_ref_price',
+          'edit_shelf',
+          'get_coupon',
+          'view_op_log',
+          'delete_combine_goods',
+          'batch_create_spu',
+          'edit_salemenu_fee_type',
+          'create_settle_print_config',
+          'delete_spu_batch_tob',
+          'edit_return_stock',
+          'get_turnover_loan_sheet',
+          'edit_demand_for_new_merchandise',
+          'delete_turnover_loan_sheet',
+          'export_product_skus_tob',
+          'create_in_stock_print_config',
+          'delete_promotion',
+          'edit_old_order',
+          'delete_salemenu',
+          'open_app_yongyou',
+          'edit_sku_formula',
+          'delete_in_stock_adjust',
+          'edit_service_time',
+          'edit_charge_gift',
+          'get_out_stock_summary',
+          'print_picking_task',
+          'get_check_shelf_location',
+          'view_category_manage_tob',
+          'export_turnover_history',
+          'edit_batch_sku_formula',
+          'delete_smart_menu',
+          'add_batchorder',
+          'edit_suggest_price',
+          'export_supplier_assess',
+          'edit_nutrition_info',
+          'get_shop_decorate_tob',
+          'add_purchase_sheet',
+          'edit_SpuDispatchSetting',
+          'edit_return',
+          'get_abnormal',
+          'edit_weigh',
+          'get_purchase_task_item',
+          'add_supplier_sku_batch',
+          'view_tag_manage_tob',
+          'add_out_stock',
+          'get_shop_decorate',
+          'import_in_stock',
+          'get_distributor_list_tob',
+          'get_purchase_dimensional',
+          'add_address_route',
+          'edit_commission_rule',
+          'edit_icon_manage_tob',
+          'add_sms_recharge_record',
+          'add_shelf',
+          'get_SpuDispatchSetting_tob',
+          'edit_address_route',
+          'delete_service_time',
+          'view_pesticidedetect',
+          'edit_order_remark',
+          'edit_supplement_list',
+          'get_settle_supplier',
+          'edit_weighing_config',
+          'view_customer_manage_tob',
+          'add_sku',
+          'get_res_custom_code',
+          'edit_batch_combine_goods',
+          'edit_product_sku_batch',
+          'edit_released_purchase_task',
+          'edit_split_plan',
+          'export_supply_and_analysis',
+          'get_msg_fail_list',
+          'edit_generate_sort_num_rule',
+          'delete_return',
+          'get_quote_price_record',
+          'get_settle_sheet',
+          'delete_product',
+          'delete_category_tob',
+          'view_home_page',
+          'add_presale_service_time',
+          'delete_settle_print_config',
+          'get_distributor_level_tob',
+          'import_return_stock',
+          'edit_quote_price',
+          'edit_pick_up_station',
+          'get_sorting_task',
+          'get_sjgz',
+          'edit_purchaser',
+          'export_sale_skus',
+          'export_purchaser_assess',
+          'add_exception_tob',
+          'delete_sale_sku_tob',
+          'add_in_stock',
+          'add_weighted_sku_to_stock',
+          'get_distribute_print',
+          'get_inner_transfer_log',
+          'edit_stock_threshold',
+          'get_in_stock_adjust',
+          'get_reward_sku',
+          'get_supply_and_analysis',
+          'delete_sale_sku',
+          'add_batch_remark',
+          'open_app_pospal_sync_order',
+          'edit_salemenu',
+          'edit_smart_pricing',
+          'edit_cloud_bannaner',
+          'get_stock_spec_price_info',
+          'add_import_sale_skus_tob',
+          'get_purchase_task',
+          'add_print_template_new',
+          'get_settle_review',
+          'get_print_template',
+          'edit_coupon',
+          'get_dispatch_method',
+          'get_distributor_withdraw_list_tob',
+          'get_profit_base',
+          'edit_default_settle_way',
+          'get_analysis_deal',
+          'delete_freight',
+          'add_salemenu',
+          'edit_purchase_print_template',
+          'get_available_task',
+          'edit_icon_manage',
+          'delete_distributor_tob',
+          'get_promotion',
+          'add_security_report',
+          'get_flash_sale_tob',
+          'edit_sjgz',
+          'edit_turnover',
+          'add_spu_private',
+          'get_sku_stocks',
+          'edit_pass_inner_transfer_sheet',
+          'get_invitation_gift_tob',
+          'export_customer_information_tob',
+          'get_rounding',
+          'edit_food_security_display',
+          'get_purchase_task_by_sort_status',
+          'get_customer_return_stock',
+          'get_coupon_tob',
+          'add_in_stock_adjust',
+          'edit_shop_setting',
+          'edit_purchase_limit',
+          'delete_print_tag',
+          'edit_fee_rate',
+          'edit_distributor_level_tob',
+          'get_purchase_sheet_export',
+          'add_freight',
+          'delete_security_report',
+          'edit_supplier_sku_batch',
+          'edit_distributor_tob',
+          'edit_cloud_bannaner_tob',
+          'add_inner_transfer_sheet',
+          'edit_distributor_withdraw_tob',
+          'edit_sku_batch',
+          'get_distributor_task_tob',
+          'edit_product',
+          'add_split_plan',
+          'edit_distributor_settle_tob',
+          'add_commission_rule',
+          'add_purchase_task_item_import',
+          'get_sorting_detail',
+          'edit_sku_formula_tob',
+          'edit_old_order_change',
+          'get_sms_recharge_record',
+          'edit_print_template_new',
+          'open_app_kingdeek3',
+          'get_pur_spec',
+          'delete_settle_supplier',
+          'view_demand_for_new_merchandise',
+          'delete_shelf',
+          'edit_outstock_batch',
+          'get_tax',
+          'get_distributor_settle_list_tob',
+          'edit_sorting_lock',
+          'move_category_tob',
+          'add_distribute_config',
+          'view_operation_report_tob',
+          'add_batchorders',
+          'add_sku_batch_tob',
+          'add_box_template',
+          'add_return',
+          'get_spu_private_tob',
+          'import_out_stock_log_price_repair',
+          'get_package',
+          'get_out_stock_adjust',
+          'get_purchase_limit',
+          'add_service_time',
+          'get_picking_task',
+          'edit_measurement',
+          'get_analysis_realdeal',
+          'distribution_order_search',
+          'open_app_youzan',
+          'add_order_import_template',
+          'create_purchase_print_template',
+          'get_shop_setting',
+          'get_in_stock_summary',
+          'edit_product_sku_batch_import_tob',
+          'delete_sku_batch',
+          'get_spu',
+          'batch_change_skus',
+          'edit_sku_tob',
+          'view_member_information_tob',
+          'delete_reward_sku',
+          'add_batch_supplier',
+          'edit_priority_supplier_tob',
+          'get_distributor_rank_tob',
+          'get_analysis_orderdetail',
+          'get_spu_private',
+          'edit_category',
+          'order_refund_tob',
+          'edit_pur_spec_batch',
+          'get_split_loss',
+          'edit_multi_batch',
+          'delete_pick_up_station',
+          'add_product',
+          'get_order_tob',
+          'get_weigh_detail',
+          'edit_out_of_stock_tasks_release',
+          'get_turnover',
+          'delete_supplier_sku',
+          'delete_return_stock',
+          'edit_purchase_task_release',
+          'edit_combine_goods',
+          'get_settle_statistics',
+          'add_turnover_return_sheet',
+          'get_sku_tob',
+          'edit_in_stock_adjust',
+          'add_order',
+          'edit_customer_receivetime_weekdays',
+          'customer_manage_tob',
+          'get_freight',
+          'edit_reward_sku',
+          'add_promotion',
+          'view_product_tob',
+          'edit_sku_batch_tob',
+          'edit_purchase_sheet',
+          'export_batch_delivery_sheet',
+          'edit_real_quantity',
+          'edit_sorting_product_code',
+          'delete_turnover',
+          'export_product_skus',
+          'add_exception',
+          'edit_flash_sale_tob',
+          'edit_price_timing',
+          'print_in_stock',
+          'get_price_timing',
+          'view_member_setting_tob',
+          'add_sku_batch',
+          'get_sorting_schedule',
+          'view_purchase_record_tob',
+          'import_quote_price',
+          'edit_batch_sku_formula_tob',
+          'edit_order_import_template',
+          'edit_freight',
+          'get_sorting_screen',
+          'edit_base_setting',
+          'edit_security_report',
+          'get_boxperformance_export',
+          'delete_purchaser',
+          'get_sku',
+          'edit_spu_private',
+          'get_shelf',
+          'get_distribute_task',
+          'edit_purchase_task_supplier',
+          'edit_tax',
+          'add_purchaser',
+          'delete_box_template',
+          'edit_supplier',
+          'get_distributor_qrcode_tob',
+          'edit_order_price_sync_to_sku',
+          'edit_material',
+          'get_food_security',
+          'edit_distribute_config',
+          'edit_presale_service_time',
+          'add_weigh',
+          'get_detail_settle_statistics',
+          'edit_salemenu_time_config',
+          'edit_settle_supplier',
+          'edit_shop_setting_tob',
+          'get_stock_value',
+          'delete_private_spu_tob',
+          'add_material',
+          'get_purchaser_assess',
+          'move_category',
+          'add_category_tob',
+          'add_charge_gift',
+          'get_share_salemenu',
+          'edit_operate_settle_sheet',
+          'edit_customer_tag_tob',
+          'edit_sku_stocks',
+          'get_turnover_history',
+          'delete_pur_spec',
+          'get_purchase_sheet',
+          'edit_cast_carousel',
+          'edit_merchandise_order',
+          'delete_requisition',
+          'add_turnover',
+          'edit_box_template',
+          'get_sms_manage',
+          'edit_split_sheet',
+          'edit_promotion',
+          'delete_in_stock',
+          'get_purchase_overview',
+          'edit_turnover_return_sheet',
+          'add_require_goods_sheet',
+          'delete_category',
+          'get_distribute_order_share',
+          'get_fee_rate',
+          'get_distributor_balance_flow_tob',
+          'get_sku_price_auto',
+          'open_app_szscgl',
+          'edit_settle_print_config',
+          'edit_box_type',
+          'export_quote_price_record',
+          'export_operation_report_tob',
+          'get_SpuDispatchSetting',
+          'delete_spu_batch',
+          'get_sku_price_manual',
+          'get_requisition_stat',
+          'get_boxtag_print',
+          'export_pur_spec',
+          'add_skus_by_image',
+          'import_spu_by_template_tob',
+          'edit_spu',
+          'get_profit_cost',
+          'edit_spu_batch',
+          'print_driver_tasks',
+          'add_requisition',
+          'get_settle_verification',
+          'batch_delete_skus',
+          'print_check_sheet',
+          'get_picking_qrcode',
+          'receive_order_remind',
+          'get_charge_gift',
+          'submit_purchase_sheet',
+          'delete_turnover_return_sheet',
+          'delete_order_import_template',
+          'get_weigh',
+          'add_print_tag',
+          'add_settle_supplier',
+          'get_distribute_center',
+          'edit_cast_carousel_toc',
+          'batch_edit_order_audit',
+          'edit_order_audit',
+          'get_order_audit',
+          'get_order_customized_field',
+          'get_merchandise_setting_toc',
+          'get_sorting_setting_toc',
+          'get_distribute_setting_toc',
+          'get_stock_setting_toc',
+          'get_cast_setting_toc',
+          'get_order_setting',
+          'get_merchandise_setting',
+          'get_bshop_setting',
+          'get_sorting_setting',
+          'get_distribute_setting',
+          'get_stock_setting',
+          'get_cast_setting',
+          'edit_toc_mp',
+          'edit_toc_mp_toc',
+          'view_edit_duplicate_sku_setting',
+          'box_num_rule_setting',
+          'get_sku_snapshot_prices',
+          'export_sku_snapshot_list',
+          'get_sku_snapshot_list_share',
+          'print_sku_snapshot_list',
+          'get_order_supplement_price',
+          'view_sorter_info',
+          'edit_sorter_info',
+          'view_sorter_performance',
+          'view_sorter_performance_rule',
+          'edit_sorter_performance_rule',
+          'get_cycle_quoted_price',
+          'edit_cycle_quoted_price',
+          'add_cycle_quoted_price',
+          'add_import_cycle_quoted_price',
+          'edit_import_cycle_quoted_price',
+          'get_change_rate',
+          'add_change_rate',
+          'update_change_rate',
+          'delete_change_rate',
+          'view_turnover_setting',
+          'modify_turnover_setting',
+          'get_turnover_refund',
+          'view_spu_remark',
+          'edit_sug_purc_amount',
+          'add_salemenu_import_template',
+          'edit_salemenu_import_template',
+          'delete_salemenu_import_template',
+        ],
+      }
+    </script>
+    <script>
+      var g_show_order_remark = true // 是否显示订单备注
+      var g_is_fqt = 0
+      var g_is_staff = false // 账号管理功能
+      var g_show_sku_outer_id = 1 // 自定义编码： 0-系统分配商品ID 1-自定义
+      var g_batch_in_stock = true // 扫码入库规则：true-多批次 false-单批次
+      var g_default_settle_way = 2 // 结算方式：1-先货后款 2-先款后货
+      var g_show_tax_rate = 1 // 税率 0-关闭 1-开启
+      /** 商品公式定价精确度 0-取整，1保留一位，2-保留两位，默认保留两位 */
+      var g_formula_price_precision = 0
+      /** 商品公式定价取舍方法 0-四舍五入，1-向上取整，2-向下取整，默认四舍五入 */
+      var g_formula_price_rounding_type = 0
+      // var g_clean_food = false // 净菜站点
+      var g_clean_food = false // 净菜站点
+      var g_show_suggest_price = 0 // 开启建议价格区间
+      var g_sync_price_timing = 1 // 开启同步时价商品
+      var g_generate_sort_num_rule = 1 // 分拣序号生成规则
+      var g_generate_sort_num_rule_classification = 1 // 分拣序号生成规则的类别
+      var g_order_create_purchase_task = 0 // 采用的是哪种采购方式 0自动进入采购任务 1手动进入采购任务
+
+      // 账号为t003,密码t003登陆启用，否则记得注释掉
+      // 账号为t003,密码t003登陆启用，否则记得注释掉
+      // 账号为t003,密码t003登陆启用，否则记得注释掉
+      var g_supplier_data = {
+        supply_station_id: 'T003',
+        seller_station_id: 'T002',
+      }
+
+      var g_in_stock_price_warning = 2 // 入库单价预警维度： 1 七天采购价 2 最高入库单价
+      var g_show_res_custom_code = 0
+
+      var g_purchase_sheet_ref_price = 0 // 采购单价默认值
+      var g_in_stock_ref_price = 6 // 入库单价默认值
+      var g_bshop_new_ui = 1
+
+      var g_c_salemenu_id = 'S48797'
+    </script>
+    <% } %> <% if(htmlWebpackPlugin.options.env === 'production') { %>
+    <script>
+      ;(function () {
+        // 泰国特殊处理，cdn慢的问题
+        var isForeign = [1135].indexOf(g_group_id) >= 0
+
+        if (!isForeign) {
+          // gio_setting.js里需要用到__platform、window.g_user和g_group_id
+          // 必须保证这些变量在gio_setting.js加载前定义好
+          document.write(
+            '<script async defer src="//js.guanmai.cn/static_storage/json/common/gio_setting.js?random=' +
+              Math.random() +
+              '"><\/script>',
+          )
+        }
+      })()
+    </script>
+    <% } %>
+  </head>
+  <body>
+    <div id="appContainer"></div>
+    <% if(htmlWebpackPlugin.options.env === 'production') { %>
+    <script
+      type="text/javascript"
+      src="//js.guanmai.cn/static_storage/json/common/browser_imcompatible_tip.js"
+    ></script>
+    <% } %>
+    <script>
+      ;(function () {
+        var isForeign = [1135, 1148].indexOf(g_group_id) >= 0
+        if (isForeign) {
+          document.write(
+            '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATQ4zpAfhUfxZu6GYrK6IVrWiSxcFzOB8&libraries=places,geometry,drawing&v=weekly" defer><\/script>',
+          )
+        } else {
+          document.write(
+            '<script src="https://webapi.amap.com/maps?v=1.4.10&key=5083dc7eb0eb96b317c739c9daae1d15"><\/script>',
+          )
+          // 首页地图组件，暂时不支持国外
+          document.write(
+            '<script src="https://webapi.amap.com/ui/1.0/main.js?v=1.0.11"><\/script>',
+          )
+        }
+      })()
+    </script>
+    <% if(htmlWebpackPlugin.options.env === 'production') { %>
+    <script>
+      var _hmt = _hmt || []
+      ;(function () {
+        var hm = document.createElement('script')
+        hm.src = '//hm.baidu.com/hm.js?941271ce636121841e8ac7c171ecb767'
+        var s = document.getElementsByTagName('script')[0]
+        s.parentNode.insertBefore(hm, s)
+      })()
+    </script>
+    <script
+      type="text/javascript"
+      src="https://webchat.yuntongxun.com/javascripts/7moorInit.js?accessId=5e70e830-8409-11e8-bb91-91ee26c83a66&autoShow=false&language=ZHCN"
+      async="async"
+      defer
+    ></script>
+    <script>
+      ;(function () {
+        var sId = window.g_user && window.g_user.station_id
+        var sName = window.g_user && window.g_user.station_name
+        var name = window.g_user && window.g_user.name
+        var userId = window.g_user && window.g_user.user_id
+        window.qimoClientId = {
+          userId: userId,
+          nickName: name + '(' + sName + ')(' + sId + ')',
+        }
+      })()
+    </script>
+    <% } %> <% if(htmlWebpackPlugin.options.env !== 'development') { %>
+    <script
+      type="text/javascript"
+      src="//js.guanmai.cn/build/libs/babel-polyfill/7.4.4/dist/polyfill.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//js.guanmai.cn/build/libs/gm-fetch/2.0.1/gm-fetch.min.js"
+    ></script>
+    <script
+      src="https://cdn-hangzhou.goeasy.io/goeasy.js?random=2"
+      defer
+    ></script>
+    <% } %>
+    <script
+      type="text/javascript"
+      src="//js.guanmai.cn/build/libs/gm-i18n/2.0.2/gm-i18n.js"
+      data-project="station"
+    ></script>
+    <script>
+      console.log()
+    </script>
+  </body>
+</html>

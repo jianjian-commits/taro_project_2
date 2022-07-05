@@ -1,0 +1,200 @@
+@import '../../../css/variables';
+@import '../../../css/common';
+
+:local {
+  .td {
+    min-width: 150px;
+    text-align: center;
+    padding: 2px 0;
+  }
+
+  .purchaseListSubTable {
+    thead>tr>th>input {
+      display: none;
+    }
+  }
+
+  .itemPageInfo {
+    td {
+      .td();
+
+      :global .gm-text-desc {
+        font-size: 12px;
+      }
+    }
+
+    tr:first-child {
+      font-size: 16px;
+    }
+  }
+
+  .itemPageFilter {
+    td {
+      .td();
+    }
+  }
+
+  .itemPageFilterItem {
+    padding: 0 5px;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid transparent;
+
+    &:hover {
+      border: 1px solid @link-color;
+    }
+
+    &.active {
+      border: 1px solid @link-color;
+    }
+
+    i {
+      color: @link-color;
+    }
+  }
+
+  .itemPageFilterItemActive {
+    .itemPageFilterItem();
+
+    padding: 0 5px;
+    border: 1px solid @link-color;
+  }
+
+  .purchaseItemTrDisabled {
+    input {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .red {
+    color: red;
+  }
+
+  .purchaseSourcerTextDisable {
+    color: rgba(0, 0, 0, 0.26);
+  }
+
+  .PopverStyles {
+    width: 300px;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .purchaseDetailOverflow {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+  }
+
+  .purchaseSourcerDropDown {
+    min-width: 100px;
+  }
+
+  .purchaseSourcerDropDownDel {
+    a {
+      color: red !important;
+    }
+  }
+
+  .print {
+    :global .table {
+      >tbody>tr>td {
+        text-align: center;
+        padding: 5px;
+      }
+
+      >thead>tr>th {
+        text-align: center;
+      }
+    }
+  }
+
+  .purchaseSourcerDialogSupplier {
+    :global .gm-search-select-input>.selected {
+      margin-bottom: 5px;
+    }
+  }
+
+  .purchaseItemHeader {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-x: scroll;
+  }
+
+  :global(.b-purchase-task-item-header .gm-collapse) {
+    position: relative;
+    height: 190px;
+  }
+
+  .taskOrderSupplierTd {
+    width: 150px;
+  }
+
+  .pruchaseTaskPrintWithDetail {
+    :global {
+      tr>.gm-sheet-expanded-td {
+        text-align: left !important;
+      }
+
+      tr>th:first-child {
+        display: none;
+      }
+
+      tr>td:first-child:not(.gm-sheet-expanded-td) {
+        display: none;
+      }
+    }
+  }
+
+  .purchaseSheetDetailTitle {
+    font-size: 12px;
+    color: #666;
+  }
+
+  .purchaseTaskCompleted {
+    background: @table-warning-bg-color  !important;
+  }
+
+  .purchaseDetailReference {
+    background: @brand-primary;
+    color: white;
+    width: 84px;
+    margin-left: 18px;
+    text-align: center;
+  }
+
+  .purchaseDetailReference::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid @brand-primary;
+  }
+
+  .purchaseStatusBgUnpublished {
+    background: #ed6089;
+  }
+
+  .purchaseStatusBgRelease {
+    background: #86b04e;
+  }
+
+  .purchaseStatusBgDone {
+    background: #43545c;
+  }
+
+  .purchaseStatusName {
+    padding: 0 5px;
+    color: white;
+    font-size: 12px;
+    line-height: 20px;
+    height: 20px;
+  }
+}

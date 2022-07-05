@@ -1,0 +1,267 @@
+.sku-detail {
+  &-paddingL0 {
+    padding-left: 0;
+  }
+
+  &-module {
+    .sku-detail-btn {
+      width: auto !important;
+    }
+
+    .sku-detail-help {
+      font-size: 16px !important;
+      margin-left: 5px;
+      position: relative;
+      top: 5px;
+    }
+
+    .panel-heading {
+      position: relative;
+    }
+
+    .glyphicon {
+      color: @gm-color-second;
+      cursor: pointer;
+
+      &.glyphicon-plus,
+      &.glyphicon-reflesh {
+        left: -15px;
+      }
+    }
+  }
+
+  &-delete {
+    position: absolute;
+    right: 15px;
+    top: 13px;
+    cursor: pointer;
+  }
+
+  &-img-box {
+    display: inline-block;
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover .sku-detail-shade {
+      opacity: 1;
+    }
+  }
+
+  &-uploader {
+    height: 94px;
+    width: 94px;
+    border: 2px dashed #ccc;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-logo {
+    position: absolute;
+    display: flex;
+    height: 90px;
+    width: 90px;
+    padding: 4px;
+    justify-content: center;
+    align-content: center;
+
+    &-img {
+      max-width: 82px;
+      max-height: 82px;
+      margin: auto;
+    }
+  }
+
+  &-default-plus {
+    font-size: 50px;
+    position: relative;
+    top: -4px
+  }
+
+  &-logo-source {
+    display: flex;
+    height: 90px;
+    width: 90px;
+    padding: 3px;
+    border: 1px solid #ccc;
+    justify-content: center;
+    align-content: center;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+
+    &-img {
+      max-width: 82px;
+      max-height: 82px;
+      margin: auto;
+    }
+  }
+
+  &-fix {
+    width: 84px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2px;
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+    color: white;
+  }
+
+  &-shade {
+    width: 86px;
+    height: 90px;
+    position: absolute;
+    top: 0px;
+    left: 2px;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 9;
+    opacity: 0;
+  }
+
+  &-minus {
+    position: absolute;
+    right: -2px;
+    top: -10px;
+    z-index: 15;
+  }
+
+  &-sync-spu {
+
+    &-to-sku-link {
+      cursor: pointer;
+      color: @link-color;
+    }
+  }
+
+  &-radio-width {
+    width: 200px;
+  }
+
+  &-radio {
+    height: 30px;
+    padding-top: 0 !important;
+    line-height: 30px;
+    position: relative;
+
+    & > .sku-detail-radio-block,
+    & > .sku-detail-radio-stocks-block {
+      position: absolute;
+      width: 143.34px;
+      height: 30px;
+      background-color: #eee;
+      opacity: 0.5;
+    }
+
+    & > .sku-detail-radio-stocks-block {
+      margin-left: 52px;
+      width: 87px;
+    }
+
+    & > .sku-detail-radio-circle {
+      margin-top: 10.5px;
+    }
+  }
+
+  &-radio-label {
+    height: 30px;
+    padding-top: 0 !important;
+    line-height: 30px;
+  }
+
+  &-radio-input {
+    width: 50px;
+    font-size: 14px;
+    padding: 4px 6px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+
+    &:focus {
+      border-color: #66afe9;
+      outline: 0;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 234, 0.6);
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: #eee;
+      opacity: 1;
+    }
+
+    &-addon {
+      display: inline-block;
+      background-color: #eee;
+      height: 30px;
+      border: 1px solid #ccc;
+      border-left: 0;
+      line-height: inherit;
+      padding-left: 12px;
+      padding-right: 12px;
+      color: #555;
+      text-align: center;
+
+      & + .sku-detail-radio-input {
+        border-left: 0;
+      }
+    }
+  }
+
+  &-inner-group {
+    margin-top: 5px;
+
+    &-label {
+      height: 30px;
+      line-height: 30px;
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    &-input {
+      display: inline-block;
+      width: 50px;
+    }
+
+    &-addon {
+      display: inline-block;
+      background-color: #eee;
+      height: 30px;
+      border: 1px solid #ccc;
+      border-left: 0;
+      line-height: 32px;
+      padding-left: 12px;
+      padding-right: 12px;
+      color: #555;
+      text-align: center;
+      margin-right: 5px;
+    }
+  }
+
+  &-new-panel-heading {
+    border-color: @brand-primary;
+
+    .panel-heading {
+      background: @brand-primary;
+      color: #fff;
+    }
+  }
+}

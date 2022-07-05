@@ -1,0 +1,124 @@
+@bInitStepsBg: @gm-back-body-bg;
+@bInitStepsActiveBg: @brand-primary;
+
+.b-init-steps {
+  .b-init-steps-item {
+    cursor: pointer;
+    height: 100px;
+    position: relative;
+    margin: 0 22px;
+    padding: 10px;
+    background: @bInitStepsBg;
+
+    .b-init-steps-item-index {
+      font-size: 70px;
+      margin-right: 10px;
+    }
+
+    .b-init-steps-item-title {
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    .b-init-steps-item-desc {
+      font-size: 14px;
+      color: @gm-color-fourth;
+    }
+
+    &::before {
+      position: absolute;
+      left: -30px;
+      display: block;
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 50px solid @bInitStepsBg;
+      border-right: none;
+      border-bottom: 50px solid @bInitStepsBg;
+      border-left: 30px solid transparent;
+    }
+
+    &::after {
+      position: absolute;
+      right: -30px;
+      display: block;
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 50px solid transparent;
+      border-right: none;
+      border-bottom: 50px solid transparent;
+      border-left: 30px solid @bInitStepsBg;
+    }
+
+    &:first-child {
+      margin-left: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &.active {
+      color: white;
+      background: @bInitStepsActiveBg;
+
+      .b-init-steps-item-desc {
+        color: #1e2d46;
+      }
+
+      &::before {
+        border-top-color: @bInitStepsActiveBg;
+        border-bottom-color: @bInitStepsActiveBg;
+      }
+
+      &::after {
+        border-left-color: @bInitStepsActiveBg;
+      }
+    }
+  }
+}
+
+.b-init-info {
+  border: 1px solid @gm-back-body-bg;
+  padding: 20px;
+  font-size: 16px;
+}
+
+.b-init-tab {
+  border-top: 1px solid @gm-back-body-bg;
+  border-right: 1px solid @gm-back-body-bg;
+  border-bottom: 1px solid @gm-back-body-bg;
+  font-size: 16px;
+
+  .b-init-tab-title {
+    cursor: pointer;
+    height: 70px;
+    font-size: 16px;
+    padding-left: 25px;
+    border-left: 5px solid transparent;
+
+    &.active {
+      color: @gm-color-primary;
+      background: white;
+      border-left-color: @gm-color-primary;
+    }
+  }
+
+  .b-init-tab-label {
+    height: 70px;
+    font-size: 16px;
+    border-left: 5px solid transparent;
+    font-weight: bold;
+    margin: 0 15px;
+    border-bottom: 1px solid @gm-border-color;
+  }
+}

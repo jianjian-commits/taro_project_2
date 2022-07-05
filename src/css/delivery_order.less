@@ -1,0 +1,56 @@
+
+.b-purchase-deliver-order table td,
+.b-purchase-deliver-order table th {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.delivery-order {
+  .table {
+    font-size: 14px;
+
+    &.table-bordered {
+      border: 1px solid @gm-border-color;
+
+      thead {
+        tr {
+          th {
+            border: 1px solid @gm-border-color;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          td {
+            border: 1px solid @gm-border-color;
+            padding: 8px;
+          }
+        }
+      }
+    }
+
+    .column-tr-color {
+      background-color: #eee;
+    }
+
+    .delivery-order-title {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
+
+@media print {
+  .delivery-order-detail {
+    .table {
+      font-size: 14px !important;
+    }
+
+    .table.table-bordered tbody tr td {
+      border: 1px solid #000 !important;
+    }
+  }
+}

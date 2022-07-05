@@ -1,0 +1,56 @@
+@button-active-color: @brand-primary;
+@button-hover-bg-color: @button-active-color;
+@button-hover-font-color: #fff;
+@button-off-font-color: @gm-color-first;
+@button-on-color: #f5f5f5;
+@button-off-color: #ccc;
+@button-height: 62px;
+
+.sku-button-group-module {
+  .sku-button {
+    &-module {
+      &:hover {
+        background: @button-hover-bg-color;
+        color: @button-hover-font-color;
+        cursor: pointer;
+      }
+    }
+
+    &-detail,
+    &-order-belong {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-all;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      height: 20px;
+      line-height: 20px;
+    }
+
+    &-off {
+      color: @button-off-font-color;
+      background: @button-off-color;
+      border-color: @button-off-color;
+    }
+
+    &-active {
+      color: @button-hover-font-color !important;
+      background: @button-hover-bg-color;
+      border-color: @button-hover-bg-color;
+    }
+
+    &-new-module {
+      color: @brand-primary;
+      height: @button-height;
+      border-color: @brand-primary;
+
+      &:hover,
+      &.sku-button-active {
+        background: @brand-primary;
+        color: @button-hover-font-color;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+include:
+  - project: back_end/gitlab_ci_templates
+    file: fe/common_workflow.yaml
+    ref: master
+
+variables:
+  PROJECT_ALIAS: "stationv2"
+  PROJECT_GM_DEPLOY_NAME: "templates_branch_frontend_index_v2" # 在后端发布脚本中的名字
+  HTML_FILENAME: "index.html" # mes 对应的是mes.html

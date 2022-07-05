@@ -1,0 +1,24 @@
+
+.qimo_chatpup {
+  z-index: 99 !important;
+}
+
+@media (max-width: 1366px) {  // height of ipad pro
+  .qimo_chatpup {
+    z-index: 99999999 !important;
+  }
+}
+
+@media print {
+  .qimo_chatpup {
+    display: none;
+  }
+
+  .chatBtn {
+    display: none;
+  }
+
+  .qimo_showNewMsg {
+    display: none;
+  }
+}

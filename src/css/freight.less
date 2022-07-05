@@ -1,0 +1,66 @@
+.gm-sheet {
+  &.freight-template {
+    table {
+      &.table-bordered {
+        border: 1px solid @gm-border-color;
+      }
+
+      thead {
+        tr {
+          th {
+            border: 1px solid @gm-border-color;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          td {
+            border: 1px solid @gm-border-color;
+          }
+        }
+      }
+    }
+  }
+
+  &.freight-restaurant-table {
+    table {
+      &.table-bordered {
+        border-top: 1px solid @gm-border-color;
+      }
+    }
+
+    .text-right {
+      border-left: 4px solid @brand-primary;
+      margin-left: -1px;
+      margin-bottom: 0;
+      height: 0;
+    }
+  }
+}
+
+.b-freight-tab-border {
+  border-top: none;
+  border-right: 1px solid @gm-border-color;
+  border-left: 1px solid @gm-border-color;
+  border-bottom: 1px solid @gm-border-color;
+}
+
+.b-freight-line {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 0;
+  border-top: 1px solid @gm-border-color;
+}
+
+.b-freight-dropmenu {
+  .dropdown-menu {
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .freight-mobile-template-direction {
+    flex-direction: column;
+  }
+}

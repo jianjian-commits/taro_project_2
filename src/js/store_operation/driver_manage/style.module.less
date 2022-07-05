@@ -1,0 +1,48 @@
+@import '../../../css/variables';
+@import '../../../css/common';
+:local {
+  .cascaderBox {
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    z-index: 1;
+  }
+
+  .driverManageNameWrap {
+    :global {
+      .form-control {
+        width: 150px;
+        display: inline-block;
+      }
+      .glyphicon-pencil, .glyphicon-ok {
+        color: @brand-primary;
+      }
+      .glyphicon-remove {
+        color: @brand-danger;
+      }
+  
+      .glyphicon-pencil {
+        visibility: hidden;
+      }
+    }
+  
+    &:hover {
+      :global(.glyphicon-pencil) {
+        visibility: visible;
+      }
+    }
+  }
+
+  .routeConfig {
+    pointer-events: none;
+  }
+
+  .driverTag {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: @gm-color-fourth;
+    margin-right: 3px;
+  }
+}

@@ -1,0 +1,28 @@
+.b-plan {
+  .b-select-all-tip {
+    position: absolute;
+    bottom: 20px;
+    left: -16px;
+    white-space: nowrap;
+    background: @brand-primary;
+    padding: 4px 10px;
+    color: white;
+  }
+
+  .b-plan-drawer-title {
+    position: relative;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+    line-height: 2em;
+    padding: 15px 39px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 19px;
+      background-color: @brand-primary;
+      width: 4px;
+      height: 2em;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@iterations: 6;
+.span-loop (@i) when (@i > 0) {
+    .b-grid-span-@{i} {
+      grid-column: span @i;
+      overflow: hidden;
+    }
+    .b-grid-row-span-@{i} {
+      grid-row: span @i;
+      overflow: hidden;
+    }
+    .span-loop(@i - 1);
+}
+.span-loop (@iterations);
+
+@media (max-width: @gm-screen-lg-min) {
+  @iterations: 6;
+  .span-loop (@i) when (@i > 0) {
+      .b-grid-span-@{i} {
+        grid-column: span 6;
+        overflow: hidden;
+      }
+      .span-loop(@i - 1);
+  }
+  .span-loop (@iterations);
+}

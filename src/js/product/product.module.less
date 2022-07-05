@@ -1,0 +1,242 @@
+@import '../../css/variables';
+@import '../../css/common';
+
+:local {
+  .productModify {
+    span {
+      cursor: pointer;
+    }
+    div {
+      display: inline-block;
+    }
+    :global select {
+      border-radius: 0;
+      margin-right: 5px;
+      padding: 2px;
+    }
+    :global input {
+      margin: 0;
+      padding: 2px;
+    }
+    :global i.glyphicon-pencil {
+      display: inline-block;
+      margin-left: 3px;
+      cursor: pointer;
+      visibility: visible;
+    }
+
+    :global .modify-edit {
+      display: inline-block;
+      cursor: pointer;
+      margin-left: 0.1rem;
+      width: 1.5rem;
+    }
+  }
+  .money {
+    font-size: 22px;
+    margin-top: 5px;
+  }
+
+  .tableBottom {
+    :global table {
+      margin-bottom: -1px;
+    }
+  }
+
+  .icon {
+    cursor: pointer;
+  }
+
+  .datePicker {
+    display: inline-block;
+    :global input {
+      width: 120px;
+    }
+  }
+
+  .title {
+    font-size: 12px;
+    color: #666666;
+  }
+
+  .content {
+    font-size: 14px;
+    color: #333333;
+  }
+
+  .print {
+    :global .table {
+      font-size: 14px;
+      &.table-bordered {
+        border: 1px solid #ddd;
+        thead {
+          tr {
+            th {
+              border: 1px solid #ddd;
+            }
+          }
+        }
+        tbody {
+          tr {
+            td {
+              border: 1px solid #ddd;
+              padding: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .warnings{
+    color: white;
+    background-color: red;
+    padding: 2px;
+    margin-bottom: 0;
+  }
+
+  .dialog {
+    margin-top: 5px;
+    padding-left: 5px;
+    :global li {
+      color: #838383;
+      list-style: none;
+      line-height: 18px;
+      span {
+        display: inline-block;
+        width: 86px;
+        text-align: right;
+      }
+    }
+  }
+
+  .importTips {
+    color: #777;
+    background-color: #EED5D2;
+    padding-left: 10px;
+  }
+
+  .preview {
+    input {
+      max-width: 120px;
+      padding: 6px 10px;
+    }
+
+    // gm-sheet-table-scroll-x的overflow-x: auto与gm-trigger的z-index冲突
+    :global .gm-sheet-table-scroll-x {
+      margin-bottom: 40px;
+    }
+
+    :global .gm-trigger {
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+
+  .stocksInput{
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .itemSelect{
+    :global .b-quick-filter-label{
+      width: 120px;
+      justify-content: flex-end;
+      padding-right: 5px;
+    }
+    :global .gm-filter-select {
+      min-width: 220px;
+    }
+  }
+
+  .shelf {
+    position: relative;
+    width: 86px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0;
+
+    &:hover::after {
+      content: attr(data-title);
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      display: inline-block;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+  }
+
+  .shelfInput{
+    position: relative;
+    display: inline-block;
+    border: 1px solid #ccc;
+    background-color: white;
+
+    input {
+      border: 0;
+      cursor: pointer;
+    }
+    button {
+      position: absolute;
+      right: 4px;
+      top: 2px;
+      font-size: 18px;
+      color: #d3d3d3;
+      background: transparent;
+      padding: 0;
+      border: 0;
+
+      &:hover{
+        color: #9C9C9C;
+      }
+    }
+  }
+  .batchList {
+    :global th {
+      input {
+        display: none;
+      }
+    }
+  }
+
+  // 先进先出 异常警告
+  .anomaly{
+    :global .gm-trigger {
+      display: inline-block;
+    }
+  }
+
+  .inStockDetailPurchaseTip{
+    color: @gm-color-second;
+    padding: 10px 10px 0;
+
+    :global .ifont-warning {
+      font-size: 16px;
+    }
+  }
+
+  .inStockDetailPurchasePopup{
+    width: 350px;
+    background: white;
+
+    :global{
+      table{
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  .arrivalMark {
+    .arrivalMarkText {
+      display: none
+    }
+    &:hover {
+      .arrivalMarkText {
+        display: inline
+      }
+    }
+  }
+}

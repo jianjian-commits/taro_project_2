@@ -1,0 +1,94 @@
+
+:local {
+  .searchSupplier {
+    padding: 0 0 !important;
+  }
+
+  .supplierName {
+    font-size: 16px;
+    min-width: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .storageInfo {
+    min-width: 280px;
+
+    :global span {
+      font-size: 12px;
+    }
+  }
+
+  .priceShow {
+    position: fixed;
+    bottom: 50px;
+    right: 40px;
+  }
+
+  .more {
+    color: #2182cc;
+    cursor: pointer;
+  }
+
+  .more:hover,
+  .more:focus {
+    color: #16588a;
+    text-decoration: underline;
+  }
+
+  .detail {
+    :global span {
+      font-size: 12px;
+    }
+  }
+
+  .amount {
+    font-size: 22px;
+    margin-top: 5px;
+  }
+
+  .title {
+    font-size: 12px;
+    color: #666;
+  }
+
+  .tableTh {
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+  }
+
+  .content {
+    font-size: 14px;
+    color: #333;
+  }
+
+  .print {
+    :global .table {
+      font-size: 14px;
+
+      &.table-bordered {
+        border: 1px solid #ddd;
+
+        thead {
+          tr {
+            th {
+              border: 1px solid #ddd;
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            td {
+              border: 1px solid #ddd;
+              padding: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

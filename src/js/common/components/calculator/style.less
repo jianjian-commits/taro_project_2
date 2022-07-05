@@ -1,0 +1,27 @@
+@import '../../../../css/variables';
+
+.b-calculator {
+  table-layout: fixed;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+
+  tbody {
+    td {
+      border: 1px solid #ccc;
+      text-align: center;
+      width: 120px;
+      cursor: pointer;
+      height: 30px;
+      line-height: 30px;
+
+      &.large {
+        font-size: 14px;
+        font-weight: bolder;
+      }
+
+      &:hover {
+        background-color: lighten(@gm-color-primary, 30%);
+      }
+    }
+  }
+}

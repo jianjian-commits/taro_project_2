@@ -1,0 +1,569 @@
+html,
+body,
+#appContainer {
+  min-height: 100vh;
+  position: relative;
+  // background: @gm-back-body-bg;
+}
+
+.b-gm-form-label-12.gm-form {
+  .gm-form-label {
+    font-size: 12px;
+  }
+}
+
+.xfont {
+  font-size: 12px;
+}
+
+.ifont {
+  font-size: 12px;
+}
+
+// 复杂性文字加透明度
+.b-second-text-opacity {
+  color: rgba(102, 102, 102, 0.26);
+}
+
+.b-word-break {
+  word-break: break-all;
+}
+
+//b-login
+.b-login {
+  padding-top: 100px;
+  height: 100vh;
+
+  form {
+    background-color: white;
+    border: 1px solid @gm-border-color;
+    border-radius: 5px;
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .b-login-name {
+    padding: 5px;
+    border-bottom: 1px solid @gm-border-color;
+    margin-bottom: 10px;
+  }
+
+  .b-login-name input {
+    border: none;
+    display: block;
+    width: 100%;
+  }
+
+  .b-login-button {
+    margin-top: 20px;
+  }
+}
+
+.b-overview {
+  bottom: 200px;
+}
+.b-border-primary {
+  border: 1px solid @brand-primary;
+}
+.b-border-color-primary {
+  border-color: @brand-primary !important;
+}
+
+.b-border-style-dashed {
+  border-style: dashed;
+}
+
+.b-task {
+  bottom: 150px;
+}
+
+.b-kefu {
+  bottom: 20px;
+  background: @brand-primary !important;
+}
+
+.b-task,
+.b-overview,
+.b-kefu {
+  position: fixed;
+  right: 0;
+  z-index: 990;
+  cursor: pointer;
+  background: #768696;
+  color: white;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 12px;
+
+  &:hover {
+    background: @brand-primary;
+  }
+}
+
+.b-url {
+  position: relative;
+
+  a {
+    cursor: pointer;
+  }
+
+  .b-url-copy {
+    display: none;
+    position: absolute;
+    right: -1em;
+    top: 0;
+  }
+
+  &:hover {
+    .b-url-copy {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .b-login form {
+    width: 100%;
+    border: none;
+    box-shadow: none;
+  }
+
+  .b-warning-box,
+  .b-task {
+    display: none;
+  }
+}
+
+@media print {
+  .b-task,
+  .b-overview,
+  .b-warning-box,
+  .b-kefu {
+    display: none;
+  }
+
+  .b-print-page-break {
+    page-break-after: always;
+  }
+}
+
+// 整改 b-customer-code-tip
+.b-customer-code-tip {
+  position: absolute;
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  z-index: 9999;
+}
+
+.b-customer-code-tip-top {
+  margin-top: -0.2rem;
+  padding: 0.3rem 0;
+  transform: translate(-10%, -100%);
+}
+
+.b-customer-code-tip_arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.b-customer-code-tip-top .b-customer-code-tip_arrow {
+  bottom: -1px;
+  left: 50%;
+  margin-left: -0.3125rem;
+  border-width: 5px 5px 0;
+}
+
+.b-customer-code-tip-top.b-customer-code-tip-black .b-customer-code-tip_arrow {
+  border-top-color: #999;
+}
+
+.b-customer-code-tip_inner {
+  max-width: 12.5rem;
+  padding: 0.1875rem 0.5rem;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #999;
+  border-radius: 0.25rem;
+}
+
+.b-customer-code-tip-black .b-customer-code-tip_inner {
+  background-color: #fff;
+}
+
+.b-white-space-nowarp {
+  white-space: nowrap;
+}
+
+.b-table-tr-twinkle {
+  animation: 1s ease;
+  animation-name: twinkle;
+}
+
+.b-psmd-finish-dialog-tip {
+  font-size: 18px;
+
+  .ifont {
+    color: @brand-primary;
+    font-size: 34px;
+  }
+}
+
+@keyframes twinkle {
+  33%,
+  100% {
+    background: @brand-primary;
+    opacity: 1;
+  }
+
+  0%,
+  66% {
+    background: @brand-primary;
+    opacity: 0.5;
+  }
+}
+
+.b-create-panel {
+  border-left: 4px solid #86b04e;
+  border-right: 1px solid @gm-border-color;
+  border-top: 1px solid @gm-border-color;
+  border-bottom: 1px solid @gm-border-color;
+  padding: 20px 20px 20px 0;
+
+  .form-control {
+    font-size: 12px;
+    width: 220px;
+  }
+}
+
+.b-create-panel-label {
+  color: #666;
+  width: 80px;
+}
+
+.b-create-panel-btn-container {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-right: 20px;
+  border-left: 1px solid @gm-border-color;
+  border-right: 1px solid @gm-border-color;
+  border-bottom: 1px solid @gm-border-color;
+}
+
+.b-width-100 {
+  width: 100px !important;
+}
+
+.b-sort-list {
+  .b-sort-list-item {
+    border: 1px dashed #ccc;
+    position: relative;
+
+    .b-sort-list-item-operation {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: none;
+    }
+
+    &:hover {
+      background-color: fadeout(@brand-primary, 80%);
+
+      .b-sort-list-item-operation {
+        display: block;
+      }
+    }
+  }
+}
+
+.gm-quick-filter {
+  .b-filter-service-time-select {
+    width: 95px;
+  }
+
+  .b-filter-select-clean-time {
+    width: 90px;
+    margin-right: 5px;
+
+    .gm-select-selection {
+      padding-left: 0 !important;
+    }
+  }
+}
+
+// 警告tips
+.b-warning-tips {
+  color: #cf4848;
+
+  .xfont-warning-circle {
+    font-size: 16px;
+    color: #cf4848;
+    margin-right: 5px;
+    margin-top: -3px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+// sheet表格中，不能编辑的SheetColumn
+.b-sheet-item-disable {
+  color: @gray-dark !important;
+  opacity: 0.6;
+
+  td {
+    color: inherit !important;
+  }
+}
+
+// 编辑框不合理警告背景色
+.b-bg-warning {
+  background: @table-warning-bg-color !important;
+}
+
+// hover展示
+.b-hover-wrap {
+  .b-hover-show-item {
+    visibility: hidden;
+  }
+
+  &:hover {
+    .b-hover-show-item {
+      visibility: visible;
+    }
+  }
+}
+
+// 颜色
+.b-color-active {
+  color: @brand-primary;
+}
+
+.b-color-danger {
+  color: #d9534f;
+}
+
+.b-modal-title {
+  position: relative;
+  font-size: 16px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 4px;
+    background: @brand-primary;
+    width: 3px;
+    height: 1em;
+  }
+}
+
+.b-cursor-disable {
+  cursor: not-allowed;
+}
+
+// 套在QuickPanel里的QuickFilter
+.b-quick-filter-in-panel {
+  border: none !important;
+  padding: 0 !important;
+}
+
+.b-receive-days-filter {
+  min-width: 400px;
+}
+
+.b-select-all-tip {
+  position: absolute;
+  bottom: 20px;
+  left: -16px;
+  white-space: nowrap;
+  background: @brand-primary;
+  padding: 4px 10px;
+  color: white;
+  min-width: 400px;
+}
+
+.b-table-row-mark {
+  color: @brand-primary;
+}
+
+.b-feature-btn {
+  background-image: linear-gradient(#ff3d00, #ffc800);
+  border-radius: 14px;
+  line-height: 24px;
+  height: 24px;
+  padding: 0 10px;
+  color: #fff;
+  cursor: pointer;
+  animation: 5s ease-out 0.5s infinite;
+  animation-name: breathe;
+}
+
+@keyframes breathe {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 1px 20px #f9440c;
+  }
+
+  25%,
+  75% {
+    opacity: 0.7;
+    box-shadow: 0 1px 2px #f6ff00;
+  }
+}
+
+.b-img-tag {
+  position: absolute;
+  background: @brand-primary;
+  color: white;
+  width: 38px;
+  bottom: 11px;
+  text-align: center;
+}
+
+// 采购总览、分拣进度背景样式
+.b-common-bg {
+  background-color: '#F7F8FA' !important;
+  padding: 5px 20px 20px;
+}
+
+// 分拣投屏页 四角边框样式
+.b-border-content {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(123, 188, 255, 0.8);
+  position: relative;
+}
+.b-padding {
+  box-sizing: border-box !important;
+  padding: 0 10px;
+  &:hover {
+    background-color: #56a3f2 !important;
+    color: #ffffff !important;
+  }
+}
+.b-angle-border {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+}
+.b-left-top-border {
+  top: -2px;
+  left: -2px;
+  border-left: 2px solid #7bbcff;
+  border-top: 2px solid #7bbcff;
+}
+.b-right-top-border {
+  top: -2px;
+  right: -2px;
+  border-right: 2px solid #7bbcff;
+  border-top: 2px solid #7bbcff;
+}
+.b-left-bottom-border {
+  bottom: -2px;
+  left: -2px;
+  border-bottom: 2px solid #7bbcff;
+  border-left: 2px solid #7bbcff;
+}
+.b-right-bottom-border {
+  bottom: -2px;
+  right: -2px;
+  border-right: 2px solid #7bbcff;
+  border-bottom: 2px solid #7bbcff;
+}
+
+.b-row-search-input {
+  position: relative;
+
+  input {
+    width: 100%;
+    height: 30px;
+    display: block;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #243351;
+    background-color: #fff;
+    border: none;
+    border-bottom: 1px solid #d4d8d8;
+    background-image: none;
+    padding: 5px 10px 5px 26px;
+    box-shadow: none;
+    transition: none;
+  }
+
+  input:focus {
+    border-color: red;
+    outline: 0;
+  }
+
+  .b-row-search-input-icon {
+    position: absolute;
+    left: 7px;
+    top: 10px;
+    z-index: 2;
+    color: #798294;
+  }
+}
+
+// .b-full-screen-linear-color-blue {
+//   background-image: -webkit-linear-gradient(bottom, #37FBFF, #015CFF);
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+// }
+
+// todo 因为不知道react-gm的line-height为什么改 先fix
+.gm-tree-group {
+  line-height: 1.5;
+}
+
+//todo 暂时加上，让fullTab包裹的内容可以沾满纵向
+.b-full-tabs-content {
+  height: ~'calc(100vh - 110px)';
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+  border: 2px solid transparent;
+  border-radius: 10px;
+}
+
+.b-markdown {
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0.4em 0;
+  }
+}
+
+.b-border-red {
+  border: 1px solid #a94442 !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
+  overflow: hidden;
+}
+.b-border-red:focus,
+.b-border-red:hover {
+  border-color: #843534 !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483 !important;
+}
+
+.b-summary-panel-text {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.gm-width-special {
+  width: 280px;
+}

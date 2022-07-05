@@ -1,0 +1,211 @@
+@import '../../css/variables';
+@import '../../css/common';
+
+:local {
+  .a4PageWrap{
+    width: 595pt;
+    margin: 20px auto;
+    border: 1px solid @gm-border-color;
+  }
+  .blockBackground{
+    position: relative;
+    border-bottom: 1px solid @gm-border-color;
+  }
+  .blockBackgroundContent{
+    width: 100%;
+    padding: 0 10pt;
+
+    :global{
+      .list-group{
+        margin-bottom: 0;
+        font-size: 12px;
+        font-weight: normal;
+      }
+      .gm-trigger{
+        cursor: pointer;
+      }
+    }
+  }
+  .blockBackgroundText {
+    position: absolute;
+    font-size: 32px;
+    font-weight: bold;
+    font-style: italic;
+    color: #efefef;
+  }
+
+  .blockColumnText{
+    position: relative;
+  }
+  
+  .blockLineAddWrap{
+    border-top: 1px solid @gm-border-color;
+    position: relative;
+  }
+
+  .popupWrap{
+    width: 100px;
+    padding: 10px;
+    font-size: 12px;
+    background: white;
+    cursor: auto;
+    font-weight: normal;
+    
+    ul{
+      list-style: none;
+      font-size: 14px;
+      padding-left: 0px;
+      text-align: center;
+      margin-bottom: 0;
+
+      li{
+        cursor: pointer;
+        line-height: 24px;
+        
+        &:hover{
+          background: @gm-back-body-bg;
+        }
+      }
+    }
+  }
+
+  .fieldModalTextInputWrap{
+    :global{
+      input[type="checkbox"]{
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .fieldModalTextInput{
+    display: inline !important;
+    width: auto;
+  }
+
+  .blockLineAdd{
+    color: @link-color;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 5px;
+    
+    span{
+      text-decoration: underline;
+    }
+  }
+
+  .modalCheckboxGroup:not(:first-child){
+    border-top: 1px solid @gm-border-color;
+  }
+
+  .blockTableHeader{
+    background: @gm-table-bg-accent;
+    height: 30pt;
+  }
+
+  .widthAndHeightToggle{
+    width: 140px;
+    text-align: right;
+    height: 34px;
+    line-height: 34px;
+  }
+
+  .templateListSizeWrap {
+    span {
+      cursor: pointer;
+    }
+
+    :global {
+      .form-control {
+        width: 150px;
+        display: inline-block;
+      }
+      .glyphicon-pencil, .glyphicon-ok {
+        color: @brand-primary;
+      }
+      .glyphicon-remove {
+        color: @brand-danger;
+      }
+
+      .glyphicon-pencil {
+        visibility: hidden;
+      }
+    }
+
+    &:hover {
+      :global(.glyphicon-pencil) {
+        visibility: visible;
+      }
+    }
+  }
+
+  .templateListHoverWrap {
+    :global {
+      .template-list-hover-item {
+        visibility: hidden;
+      }
+    }
+
+    &:hover {
+      :global(.template-list-hover-item) {
+        visibility: visible;
+      }
+    }
+  }
+
+  .printWrap{
+    height: 100%;
+    padding-top: 100px;
+  }
+  
+  .printBtn{
+    margin: 50px;
+  }
+
+  .printIframe{
+    width: 70%;
+    height: 80%;
+    margin: 20px;
+    float: right;
+    background: rgba(193, 193, 193, 1);
+  }
+
+  .printDesc{
+    color: red;
+    margin-top: 10px;
+
+    :global(ul){
+      padding-left: 2em;
+    }
+  }
+
+  .printSizeSelect{
+    display: block;
+  }
+  .printCustomerSelect{
+    height: 34px;
+    line-height: 34px;
+  }
+  :global(.gm-dropper-default) {
+      min-height: 100px;
+      height: auto !important;
+  }
+  .printLogo{
+    width: 98px;
+    height: 98px;
+    object-fit: contain;
+  }
+
+  .logoUpload {
+    width: 100px;
+    height: 100px;
+    font-size: 60px;
+    color: #ddd;
+    text-align: center;
+    border: 2px dashed #ddd;
+    cursor: pointer;
+
+    img, i {
+      vertical-align: middle;
+    }
+  }
+}

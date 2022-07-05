@@ -1,0 +1,31 @@
+.table.table-bordered {
+  &.b-split-document-print {
+    page-break-after: always;
+
+    thead tr {
+      & th {
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      &.title {
+        & th {
+          font-size: 24px;
+        }
+      }
+    }
+
+    tbody,
+    tfoot tr {
+      & td {
+        border: 1px solid #ddd;
+        text-align: center;
+      }
+    }
+
+    tfoot tr td {
+      font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+import React, { useEffect, useRef, useState } from 'react'
+import { i18next } from 'gm-i18n'
+import { observer } from 'mobx-react'
+import { ManagePaginationV2 } from '@gmfe/business'
+import { TableX } from '@gmfe/table-x'
+import store from '../store'
+
+const List = () => {
+  const { filter } = store
+  const paginationRef = useRef()
+
+  const [list, setList] = useState([])
+
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    fetchList()
+  }, [filter])
+
+  const fetchList = () => {
+    setLoading(true)
+    setList([{}])
+    setLoading(false)
+  }
+
+  return (
+    <ManagePaginationV2
+      id='settle_sheet_list'
+      ref={paginationRef}
+      onRequest={fetchList}
+    >
+      <TableX
+        data={list}
+        keyField='id'
+        loading={loading}
+        columns={[
+          {
+            Header: i18next.t('建单时间'),
+            accessor: 'date_time',
+          },
+          {
+            Header: i18next.t('结款单号'),
+            width: '250',
+          },
+          {
+            Header: i18next.t('供应商'),
+            accessor: 'settle_supplier_name',
+          },
+          {
+            Header: i18next.t('单据总金额'),
+            accessor: 'total_price',
+          },
+          {
+            Header: i18next.t('结算周期'),
+            accessor: 'pay_method',
+          },
+          {
+            Header: i18next.t('结款单状态'),
+            accessor: 'status',
+          },
+          {
+            Header: i18next.t('单据打印'),
+            id: 'print_action',
+            width: 80,
+          },
+        ]}
+      />
+    </ManagePaginationV2>
+  )
+}
+
+export default observer(List)

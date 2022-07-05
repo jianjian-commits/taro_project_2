@@ -1,0 +1,42 @@
+.jd {
+  &-edit {
+    &-icon {
+      display: none;
+      color: #eb9316;
+    }
+
+    &-input {
+      position: relative;
+
+      &-module {
+        &:hover {
+          & .jd-edit-icon {
+            display: block;
+            position: absolute;
+            right: 5px;
+            top: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  &-input {
+    &:disabled,
+    &.jd-input-disabled {
+      box-shadow: none;
+      background: transparent;
+      border: 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.text {
+      &:hover {
+        cursor: default;
+      }
+    }
+  }
+}

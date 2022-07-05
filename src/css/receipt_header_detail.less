@@ -1,0 +1,74 @@
+.b-receipt-header-detail {
+  background: @gm-back-body-bg;
+  border-bottom: 1px solid fadeout(@gm-frame-border-color, 50%);
+
+  &-summary {
+    border-right: 1px solid fadeout(@gm-frame-border-color, 50%);
+    height: auto;
+    white-space: nowrap;
+
+    &-item {
+      & + .b-receipt-header-detail-summary-item {
+        margin-left: 20px;
+      }
+    }
+
+    &-text {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    &-value {
+      margin-top: 10px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #56a3f2;
+    }
+  }
+
+  &-header {
+    &-item {
+      font-size: 14px;
+      font-weight: 600;
+      padding-right: 10px;
+
+      &-label {
+        margin-right: 10px;
+      }
+
+      .gm-more-select {
+        .gm-text-desc,
+        .gm-more-select-selected-item {
+          font-size: 12px;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+
+  &-content {
+    &-item {
+      padding-top: 10px;
+      padding-right: 10px;
+      height: 40px;
+
+      &-label {
+        margin-right: 10px;
+      }
+
+      &-label,
+      &-text {
+        word-wrap: break-word;
+        word-break: break-all;
+      }
+    }
+  }
+
+  .b-receipt-header-tag {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: @gm-color-fourth;
+    margin-right: 3px;
+  }
+}
